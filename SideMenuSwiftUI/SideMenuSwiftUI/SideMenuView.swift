@@ -12,7 +12,7 @@ struct SideMenuView: View {
     @Binding var isOpen: Bool
     
     let menuItems = ["Profile", "Settings", "Logout"]
-    let sideMenuWidth = UIScreen.main.bounds.width
+    let screenWidth = UIScreen.main.bounds.width
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -26,10 +26,10 @@ struct SideMenuView: View {
             List(menuItems, id: \.self) { item in
                 Text(item)
             }
-            .frame(width: sideMenuWidth * 0.8, alignment: .leading)
+            .frame(width: screenWidth * 0.8, alignment: .leading)
             .padding(.top)
         }
-        .offset(x: isOpen ? 0 : -sideMenuWidth)
+        .offset(x: isOpen ? 0 : -screenWidth)
         .animation(.default.speed(0.75))
     }
 }

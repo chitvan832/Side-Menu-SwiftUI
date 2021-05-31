@@ -14,15 +14,25 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Color.orange
-            HStack {
-                Text("Hello, world!")
-                    .padding()
-                Spacer()
-                Text("Background Text")
-                    .padding()
-                    .onTapGesture {
+            VStack {
+                HStack {
+                    Button {
                         isOpen.toggle()
+                    } label: {
+                        Image(systemName: "ellipsis.circle.fill")
+                            .padding()
                     }
+                    Spacer()
+                }
+                Spacer()
+                HStack {
+                    Text("Hello, world!")
+                        .padding()
+                    Spacer()
+                    Text("Background Text")
+                        .padding()
+                }
+                Spacer()
             }
             SideMenuContainerView(isOpen: $isOpen) {
                 SideMenuContentView()

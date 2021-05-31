@@ -18,16 +18,15 @@ struct ContentView: View {
                 Text("Hello, world!")
                     .padding()
                 Spacer()
-                Text("Hello, world!")
+                Text("Background Text")
                     .padding()
                     .onTapGesture {
                         isOpen.toggle()
                     }
             }
-//            if isOpen {
-                SideMenuView(isOpen: $isOpen)
-                .ignoresSafeArea(.all, edges: .vertical)
-//            }
+            SideMenuContainerView(isOpen: $isOpen) {
+                SideMenuContentView()
+            }
         }
     }
 }
